@@ -38,7 +38,7 @@ function validateHappy(happy) {
 }
 
 function validateProblem(theProblem) {
-    while (theProblem != 1 && theProblem != 2 && theProblem != 3 && theProblem != 4) {
+    while (theProblem < 1 || theProblem > 4) {
         theProblem = prompt("What would you like to change? 1 for destination, 2 for restaurant, 3 for transportation, 4 for entertainment");
     }
     return theProblem;
@@ -64,21 +64,18 @@ function solveProblem(happy) {
         switch (problem) {
             case "1":
                 destination = getRandom(destinations);
-                showTrip();
                 break;
             case "2":
                 restaurant = getRandom(restaurants);
-                showTrip();
                 break;
             case "3":
                 transportation = getRandom(transportations);
-                showTrip();
                 break;
             case "4":
                 entertainment = getRandom(entertainments);
-                showTrip();
                 break;
         }
+        showTrip();
         userHappy = prompt("Do you like the options provided, yes or no?");
         userHappy = validateHappy(userHappy);
         if (userHappy == "no") {
